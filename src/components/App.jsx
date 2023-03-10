@@ -1,9 +1,21 @@
 import { GlobalStyle } from 'GlobalStyle';
 import { Layout } from './Layout/Layout.styled';
 import { Component } from 'react';
+import { useState, useEffect } from 'react';
 import { ContactsForm } from './Form/Form';
 import { Filter } from './Filter/Filter';
 import { ContactsList } from './ContactsList/ContactsList';
+
+const getInitialContacts = () => {
+  const savedContacts = localStorage.getItem('contacts');
+  if (savedContacts !== null) {
+    const parsedContacts = JSON.parse(savedContacts);
+    return parsedContacts;
+  }
+  return [];
+};
+
+// const [contacts, setContacts] = useState(getInitialContacts());
 
 export class App extends Component{
 
