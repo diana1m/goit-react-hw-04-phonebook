@@ -28,11 +28,11 @@ export const App = () => {
     if(contacts.find(contact => contact.name === newContact.name)){
       return alert(`${newContact.name} is already in contacts!`)
     }
-    setContacts(prevState => [...prevState, newContact]);
+    setContacts([...contacts, newContact]);
   };
 
   const deleteContact = contactName => {
-    setContacts(prevState => prevState.filter(contact => contact.name !== contactName));
+    setContacts(contacts.filter(contact => contact.name !== contactName));
   };
 
   const handleChange = evt => {
